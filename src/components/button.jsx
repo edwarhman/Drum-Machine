@@ -19,20 +19,29 @@ const innerStyle = {
 }
 
 function Button(props) {
-  const { id, className, keyName } = props
+  const { className, keyName, trackName, trackFile } = props
+  const track = new Audio(trackFile)
+
+  track.play()
 
   return (
-    <button id={id} style={outerstyle} className={className}>
+    <button
+      id={trackName.replace('.mp3', '')}
+      style={outerstyle}
+      className={className}
+    >
       <div style={innerStyle}>{keyName}</div>
+      <audio src={trackFile} className="clip" id="keyName"></audio>
     </button>
   )
 }
 
 // verify props types
 Button.propTypes = {
-  id: PropTypes.string,
   className: PropTypes.string,
   keyName: PropTypes.string,
+  trackFile: PropTypes.string,
+  trackName: PropTypes.string,
 }
 
 export default Button
