@@ -4,7 +4,7 @@ import Button from './components/button'
 import { importAll } from './utils'
 import { useSelector } from 'react-redux'
 
-const BUTTONS_KEYS = ['q', 'w', 'e', 'a', 's', 'd', 'z', 'x', 'c']
+const BUTTONS_KEYS = ['Q', 'W', 'E', 'A', 'S', 'D', 'Z', 'X', 'C']
 const audioTracks = importAll(require.context('./audio', false, /\.(mp3)$/))
 const tracksNames = Object.keys(audioTracks)
 
