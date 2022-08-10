@@ -22,13 +22,14 @@ function Button(props) {
   const { className, keyName, trackName, trackFile } = props
   const track = new Audio(trackFile)
 
-  track.play()
-
   return (
     <button
       id={trackName.replace('.mp3', '')}
       style={outerstyle}
       className={className}
+      onClick={() => {
+        track.play()
+      }}
     >
       <div style={innerStyle}>{keyName}</div>
       <audio src={trackFile} className="clip" id="keyName"></audio>
