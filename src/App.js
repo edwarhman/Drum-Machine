@@ -1,11 +1,18 @@
 import React from 'react'
 import './App.css'
+import Button from './components/button'
+
+const BUTTONS_KEYS = ['q', 'w', 'e', 'a', 's', 'd', 'z', 'x', 'c']
 
 function App() {
   return (
     <div className="App" id="drum-machine">
       <input readOnly id="display"></input>
-      <div className="buttons-container"></div>
+      <div className="buttons-container">
+        {BUTTONS_KEYS.map((key) => (
+          <Button keyName={key} key={key}></Button>
+        ))}
+      </div>
     </div>
   )
 }
