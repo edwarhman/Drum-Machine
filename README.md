@@ -43,7 +43,6 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 Sound Effect from <a href="https://pixabay.com/sound-effects/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=7184">Pixabay</a>
 
-
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
