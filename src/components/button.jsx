@@ -1,6 +1,10 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { update } from '../drumSlice'
 // To verify props types
 import PropTypes from 'prop-types'
+
+// styles css
 
 // set button square
 const outerstyle = {
@@ -19,15 +23,18 @@ const innerStyle = {
 }
 
 function Button(props) {
+  const dispatch = useDispatch()
   const { className, keyName, trackName, trackFile } = props
   const track = new Audio(trackFile)
+  const formated = trackName.replace('.mp3', '')
 
   return (
     <button
-      id={trackName.replace('.mp3', '')}
+      id={formated}
       style={outerstyle}
       className={className}
       onClick={() => {
+        dispatch(update(formated.replaceAll('-', ' ')))
         track.play()
       }}
     >
