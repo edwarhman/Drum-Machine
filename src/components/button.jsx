@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { update } from '../drumSlice'
+import { useRef } from 'react'
 // To verify props types
 import PropTypes from 'prop-types'
 
@@ -23,9 +24,10 @@ const innerStyle = {
 }
 
 function Button(props) {
+  const buttonRef = useRef(null)
+  const audioRef = useRef(null)
   const dispatch = useDispatch()
   const { className, keyName, trackName, trackFile } = props
-  const track = new Audio(trackFile)
   const formated = trackName.replace('.mp3', '')
 
   return (
@@ -35,11 +37,17 @@ function Button(props) {
       className={className}
       onClick={() => {
         dispatch(update(formated.replaceAll('-', ' ')))
-        track.play()
+        audioRef.current.play()
       }}
+      ref={buttonRef}
     >
       <div style={innerStyle}>{keyName}</div>
-      <audio src={trackFile} className="clip" id={keyName}></audio>
+      <audio
+        src={trackFile}
+        className="clip"
+        id={keyName}
+        ref={audioRef}
+      ></audio>
     </button>
   )
 }
