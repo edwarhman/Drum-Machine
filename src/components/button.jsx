@@ -27,15 +27,15 @@ function Button(props) {
   const buttonRef = useRef(null)
   const audioRef = useRef(null)
   const dispatch = useDispatch()
-  const { className, keyName, trackName, trackFile, keyPressed } = props
+  const { className, keyName, trackName, trackFile, keyPressed, keyCount } =
+    props
   const formated = trackName.replace('.mp3', '')
 
   useEffect(() => {
-    console.log('se usa el efecto')
     if (keyPressed === keyName) {
       buttonRef.current.click()
     }
-  })
+  }, [keyCount])
 
   return (
     <button
@@ -44,6 +44,7 @@ function Button(props) {
       className={className}
       onClick={() => {
         dispatch(update(formated.replaceAll('-', ' ')))
+        audioRef.current.load()
         audioRef.current.play()
       }}
       ref={buttonRef}
@@ -66,6 +67,7 @@ Button.propTypes = {
   trackFile: PropTypes.string,
   trackName: PropTypes.string,
   keyPressed: PropTypes.string,
+  keyCount: PropTypes.number,
 }
 
 export default Button

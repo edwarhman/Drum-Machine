@@ -15,6 +15,7 @@ function App() {
   const dispatch = useDispatch()
   const lastAudio = useSelector((state) => state.drum.lastAudio)
   const keyPressed = useSelector((state) => state.drum.keyPressed)
+  const keyCount = useSelector((state) => state.drum.keyCount)
 
   // add keydown event listener
   useEffect(() => {
@@ -35,6 +36,7 @@ function App() {
         keyName={key}
         className="drum-pad"
         keyPressed={keyPressed}
+        keyCount={keyCount}
       ></Button>
     )
   })
