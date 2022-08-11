@@ -22,10 +22,9 @@
   margin-right: 5%;
 }
 
-.display-container > h2 {
-  margin: 0;
-}
 #display {
-  height: 0;
-  padding-bottom: 20%;
+  background-color: white;
+  color: black;
+  font-size: 1.4em;
+  line-height: 3;
 }
