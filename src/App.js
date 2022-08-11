@@ -46,9 +46,9 @@ function App() {
     <div className="App" id="drum-machine">
       <div className="display-container">
         <h2>Display:</h2>
-        <input readOnly id="display" value={lastAudio}></input>
+        <div id="display">{lastAudio}</div>
       </div>
-      <div className="buttons-container">{buttons}</div>
+      <p className="buttons-container">{buttons}</p>
     </div>
   )
 }
