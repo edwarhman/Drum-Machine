@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { update } from '../drumSlice'
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 // To verify props types
 import PropTypes from 'prop-types'
 
@@ -27,8 +27,15 @@ function Button(props) {
   const buttonRef = useRef(null)
   const audioRef = useRef(null)
   const dispatch = useDispatch()
-  const { className, keyName, trackName, trackFile } = props
+  const { className, keyName, trackName, trackFile, keyPressed } = props
   const formated = trackName.replace('.mp3', '')
+
+  useEffect(() => {
+    console.log('se usa el efecto')
+    if (keyPressed === keyName) {
+      buttonRef.current.click()
+    }
+  })
 
   return (
     <button
@@ -58,6 +65,7 @@ Button.propTypes = {
   keyName: PropTypes.string,
   trackFile: PropTypes.string,
   trackName: PropTypes.string,
+  keyPressed: PropTypes.string,
 }
 
 export default Button

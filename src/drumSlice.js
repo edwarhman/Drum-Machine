@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   lastAudio: '',
+  keyPressed: '',
 }
 
 export const drumSlice = createSlice({
@@ -13,8 +14,12 @@ export const drumSlice = createSlice({
     update: (state, action) => {
       state.lastAudio = action.payload
     },
+    updateKeyPressed: (state, action) => {
+      state.keyPressed = action.payload
+      console.log('pressed key is updated')
+    },
   },
 })
 
-export const { update } = drumSlice.actions
+export const { update, updateKeyPressed } = drumSlice.actions
 export default drumSlice.reducer
