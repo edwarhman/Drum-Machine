@@ -18,6 +18,8 @@ const outerstyle = {
 const innerStyle = {
   position: 'absolute',
   margin: 'auto 0',
+  width: '100%',
+  height: '100%',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
@@ -38,25 +40,27 @@ function Button(props) {
   }, [keyCount])
 
   return (
-    <button
-      id={formated}
-      style={outerstyle}
-      className={className}
-      onClick={() => {
-        dispatch(update(formated.replaceAll('-', ' ')))
-        audioRef.current.load()
-        audioRef.current.play()
-      }}
-      ref={buttonRef}
-    >
-      <div style={innerStyle}>{keyName}</div>
-      <audio
-        src={trackFile}
-        className="clip"
-        id={keyName}
-        ref={audioRef}
-      ></audio>
-    </button>
+    <div style={outerstyle}>
+      <button
+        id={formated}
+        style={innerStyle}
+        className={className}
+        onClick={() => {
+          dispatch(update(formated.replaceAll('-', ' ')))
+          audioRef.current.load()
+          audioRef.current.play()
+        }}
+        ref={buttonRef}
+      >
+        {keyName}
+        <audio
+          src={trackFile}
+          className="clip"
+          id={keyName}
+          ref={audioRef}
+        ></audio>
+      </button>
+    </div>
   )
 }
 
